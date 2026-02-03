@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reshape vs Flatten Output</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+  <h2>Reshape and Flatten (Check Console)</h2>
+
+  <script>
+    console.log("Original Tensor (2 x 3):");
+    const tensor = tf.tensor2d([1, 2, 3, 4, 5, 6], [2, 3]);
+    tensor.print();
+
+    console.log("Reshaped Tensor (3 x 2):");
+    const reshaped = tensor.reshape([3, 2]);
+    reshaped.print();
+
+    console.log("Flattened Tensor (1D):");
+    const flattened = tensor.flatten();
+    flattened.print();
+  </script>
+</body>
+</html>
