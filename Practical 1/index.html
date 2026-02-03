@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Linear Regression using TensorFlow.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+  <h2>Linear Regression with Synthetic Data</h2>
+  <p>Check console for training output and prediction</p>
+
+  <script>
+    async function runLinearRegression() {
+
+      // 1️⃣ Synthetic training data (y = 2x + 1)
+      const xs = tf.tensor2d([1, 2, 3, 4, 5], [5, 1]);
+      const ys = tf.tensor2d([3, 5, 7, 9, 11], [5, 1]);
+
+      console.log("Training Input (x):");
+      xs.print();
+
+      console.log("Training Output (y):");
+      ys.print();
+
+      // 2️⃣ Create Sequential Model
+      const model = tf.sequential();
+
+      // 3️⃣ Add Dense Layer
+      model.add(tf.layers.dense({
+        units: 1,
+        inputShape: [1]
+      }));
+
+      // 4️⃣ Compile Model
+      model.compile({
+        optimizer: 'sgd',
+        loss: 'meanSquaredError'
+      });
+
+      // 5️⃣ Train Model
+      console.log("Training started...");
+      await model.fit(xs, ys, {
+        epochs: 200,
+        callbacks: {
+          onEpochEnd: (epoch, logs) => {
+            if (epoch % 50 === 0) {
+              console.log(`Epoch ${epoch}: Loss = ${logs.loss}`);
+            }
+          }
+        }
+      });
+
+      console.log("Training completed!");
+
+      // 6️⃣ Prediction
+      const testInput = tf.tensor2d([6], [1, 1]);
+      const prediction = model.predict(testInput);
+
+      console.log("Prediction for x = 6:");
+      prediction.print();
+    }
+
+    runLinearRegression();
+  </script>
+</body>
+</html>
