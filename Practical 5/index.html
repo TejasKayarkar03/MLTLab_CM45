@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main Practical - Webcam Object Detection</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+</head>
+
+<body>
+
+<header>
+<h1>AI Webcam Object Detection System</h1>
+</header>
+
+<div class="container">
+
+<video id="video" autoplay></video>
+<canvas id="canvas"></canvas>
+
+<div class="info">
+<p id="object">Object: --</p>
+<p id="confidence">Confidence: --</p>
+<p id="fps">FPS: 0</p>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
