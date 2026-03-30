@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ML Model Deployment</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+
+<div class="card">
+  <h1>🤖 ML Model Deployment</h1>
+  <p class="subtitle">Train • Save • Load • Predict</p>
+
+  <input type="number" id="inputValue" placeholder="Enter a number..." />
+
+  <div class="buttons">
+    <button onclick="trainModel()">Train</button>
+    <button onclick="saveModel()">Save</button>
+    <button onclick="loadModel()">Load</button>
+    <button onclick="predict()" class="predict-btn">Predict</button>
+  </div>
+
+  <!-- OUTPUT BOX -->
+  <div class="output-box">
+    <p id="status">📌 Status: Waiting...</p>
+    <p id="modelStatus">📥 Model: Not Saved</p>
+    <p id="inputDisplay">🔢 Input Value: --</p>
+
+    <h2>💡 Predicted Output</h2>
+    <div id="result">--</div>
+
+    <p id="finalStatus">⚡ Result: --</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

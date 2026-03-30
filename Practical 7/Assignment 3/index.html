@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 3 - Smart Predictor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>📜 Smart Prediction System</h2>
+
+  <input type="number" id="inputValue" placeholder="Enter value..." />
+
+  <div class="buttons">
+    <button onclick="trainModel()">Train</button>
+    <button onclick="saveModel()">Export</button>
+    <button onclick="loadModel()">Import</button>
+    <button onclick="predict()">Predict</button>
+  </div>
+
+  <p id="status">📌 Status: Waiting...</p>
+
+  <h3>🧾 Prediction History</h3>
+  <div id="history" class="history"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

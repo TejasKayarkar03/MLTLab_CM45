@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentimentAI | Real-time Emotion Intelligence</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- External Libraries -->
+    <!-- face-api.js for ML Emotion Detection -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <!-- Chart.js for building the Dashboard -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Modular Application Logic -->
+    <script defer src="js/dashboard.js"></script>
+    <script defer src="js/faceDetection.js"></script>
+    <script defer src="js/app.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="app-layout">
+        <!-- Main Content Area: Video & Controls -->
+        <main class="vision-workspace">
+            <header class="workspace-header">
+                <div class="logo">
+                    <span class="logo-icon">✨</span>
+                    <h1>Sentiment<span class="highlight">AI</span></h1>
+                </div>
+                <div class="status-badge" id="app-status">Models Loading...</div>
+            </header>
+
+            <div class="video-container">
+                <div class="camera-wrapper">
+                    <!-- The webcam video feed -->
+                    <video id="webcam" autoplay muted playsinline></video>
+                    <!-- Overlay canvas for bounding boxes and labels -->
+                    <canvas id="overlay-canvas"></canvas>
+                    
+                    <div class="loading-overlay" id="loading-overlay">
+                        <div class="spinner"></div>
+                        <p>Initializing Neural Networks...</p>
+                    </div>
+                </div>
+                
+                <div class="controls-panel">
+                    <button id="start-btn" class="btn primary-btn" disabled>
+                        <span class="btn-icon">▶</span> Start Engine
+                    </button>
+                    <button id="stop-btn" class="btn secondary-btn" disabled>
+                        <span class="btn-icon">⏹</span> Stop 
+                    </button>
+                    
+                    <div class="live-emotion-display" id="current-emotion-display">
+                        <span class="emotion-emoji" id="current-emoji">🤖</span>
+                        <div class="emotion-text">
+                            <h3 id="current-emotion-label">Awaiting Faces</h3>
+                            <p id="current-emotion-score">--</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Sidebar Area: Dashboard and Use-Cases -->
+        <aside class="analytics-sidebar">
+            <!-- SaaS Use-Case Context -->
+            <section class="panel use-case-panel">
+                <h2>Intelligence Suite</h2>
+                <p class="panel-desc">Deploy real-time affective computing for powerful business applications:</p>
+                <ul class="use-case-list">
+                    <li>
+                        <span class="icon">🛍️</span>
+                        <div>
+                            <strong>Retail Analytics</strong>
+                            <span>Gage instant shopper reactions to physical displays.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">🎧</span>
+                        <div>
+                            <strong>Customer Experience</strong>
+                            <span>Monitor caller frustration or joy in support queues.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="icon">💻</span>
+                        <div>
+                            <strong>UX Testing</strong>
+                            <span>Track authentic user engagement during A/B testing.</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Live Data Dashboard -->
+            <section class="panel chart-panel">
+                <div class="panel-header">
+                    <h2>Live Session Stats</h2>
+                    <span class="live-pulse">LIVE</span>
+                </div>
+                
+                <!-- Emotion Bar Chart -->
+                <div class="chart-wrapper">
+                    <canvas id="emotionChart"></canvas>
+                </div>
+
+                <!-- Aggregated Data Snippets -->
+                <div class="stats-grid">
+                    <div class="stat-card happy-stat">
+                        <span class="stat-label">Joy Index</span>
+                        <h3 id="stat-happy-percent">0%</h3>
+                    </div>
+                    <div class="stat-card sad-stat">
+                        <span class="stat-label">Negative Affect</span>
+                        <h3 id="stat-sad-percent">0%</h3>
+                    </div>
+                    <div class="stat-card total-stat">
+                        <span class="stat-label">Total Readings</span>
+                        <h3 id="stat-total-count">0</h3>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+</body>
+</html>

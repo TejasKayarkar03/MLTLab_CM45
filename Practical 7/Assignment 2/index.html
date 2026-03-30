@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 2 - Smart Comparison</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+
+<div class="card">
+  <h2>🔍 Model Prediction Comparison</h2>
+
+  <input type="number" id="inputValue" placeholder="Enter value..." />
+
+  <div class="buttons">
+    <button onclick="trainOriginal()">Train & Save</button>
+    <button onclick="loadModel()">Load Model</button>
+    <button onclick="compare()">Compare</button>
+  </div>
+
+  <!-- RESULT BOX -->
+  <div class="result-box">
+    <div class="box">
+      <h3>🧠 Original Model</h3>
+      <p id="original">--</p>
+    </div>
+
+    <div class="box">
+      <h3>💾 Reloaded Model</h3>
+      <p id="loaded">--</p>
+    </div>
+  </div>
+
+  <p id="difference">Difference: --</p>
+  <p id="status">Status: Waiting...</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

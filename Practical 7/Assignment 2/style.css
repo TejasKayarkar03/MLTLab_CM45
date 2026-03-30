@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #0f2027, #2c5364);
+  color: white;
+  text-align: center;
+}
+
+.card {
+  margin-top: 80px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px;
+  width: 200px;
+}
+
+.buttons button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00f2fe;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* RESULT BOX */
+.result-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.box {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 15px;
+  width: 150px;
+}
+
+.box p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00f2fe;
+}
+
+#difference {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#status {
+  margin-top: 10px;
+  font-weight: bold;
+}
